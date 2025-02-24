@@ -17,4 +17,7 @@
   <a href="{{ .Permalink }}">#{{ .LinkTitle }}</a>
   {{ end }}
 </p>
+<p>
+  {{ partial "gitalk.html" . }}
+</p>
 {{ end }}
