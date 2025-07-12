@@ -91,17 +91,32 @@
   }
 
   pre {
-    white-space: pre-wrap; /* 允许换行 */
-    word-wrap: break-word; /* 在单词内换行 */
-    overflow-wrap: anywhere;
-    padding: 1px 15px;
+    white-space: pre !important; /* 保持原始空格和缩进 */
+    overflow-x: auto;
+    padding: 16px;
+    margin: 1em 0;
+    background-color: var(--code-background-color);
+    border-radius: 8px;
+    line-height: 1.4;
     }
 
   code {
-        font-family: monospace;
-        padding: 2px;
+        font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        padding: 2px 4px;
         border-radius: 3px;
-        white-space: normal;
+        white-space: pre;
+        font-size: 0.9em;
+  }
+
+  /* 代码块内的code元素 */
+  pre code {
+        background: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 0.9em;
+        white-space: pre !important;
+        word-wrap: normal !important;
+        overflow-wrap: normal !important;
   }
 
   code:not([class]) {
@@ -133,7 +148,22 @@
       width: auto !important;
   }
 
-  /* .highlight, .code {
+  .highlight {
+      position: relative;
+      margin: 1em 0;
+      border-radius: 8px;
+      overflow: hidden;
+  }
+
+  .highlight pre {
+      margin: 0;
+      padding: 16px;
+      overflow-x: auto;
+      white-space: pre !important;
+      /* 让Hugo生成的内联样式来控制背景色 */
+  }
+
+  .code {
       padding: 1px 15px;
       background-color: var(--code-background-color);
       color: var(--code-color);
@@ -141,7 +171,7 @@
       margin-block-start: 1em;
       margin-block-end: 1em;
       overflow-x: auto;
-  } */
+  }
 
   /* blog post list */
   ul.blog-posts {
